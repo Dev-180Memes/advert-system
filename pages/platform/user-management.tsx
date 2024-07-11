@@ -14,11 +14,16 @@ const UserManagement = () => {
       if (token) {
         const { id } = decodeJWT(token);
         const { data } = await axios.get(`/api/admin/users/${id}`);
-        setClients(data.user);
+
+        if (data.user) {
+          setClients(data.user);
+        } else {
+          console.error('Error getting clients:', data.message);
+        }
       }
     }
 
-    // fetchClients();
+    fetchClients();
   }, []);
 
   const addClient = async (e: React.FormEvent) => {

@@ -1,6 +1,6 @@
 import mongoose,{ Schema, Model, Document, ObjectId } from "mongoose";
 
-interface IReport extends Document {
+export interface IReport extends Document {
     campaignTitle: string;
     content: string;
     successfulEmails: string[];
