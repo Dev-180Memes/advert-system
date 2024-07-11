@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 
-const AdminLogin = () => {
+const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -13,8 +13,8 @@ const AdminLogin = () => {
     try {
       const response = await axios.post('/api/admin/login', { username, password });
       if (response.status === 200) {
-        localStorage.setItem('adminToken', response.data.token);
-        router.push('/admin/dashboard');
+        localStorage.setItem('token', response.data.token);
+        router.push('/platform/dashboard');
       }
     } catch (error) {
       setError('Invalid credentials');
@@ -23,7 +23,7 @@ const AdminLogin = () => {
 
   return (
     <div>
-      <h1>Admin Login</h1>
+      <h1>Login</h1>
       {error && <p>{error}</p>}
       <form onSubmit={handleLogin}>
         <div>
@@ -52,4 +52,4 @@ const AdminLogin = () => {
   );
 };
 
-export default AdminLogin;
+export default Login;

@@ -8,14 +8,18 @@ const withAuth = (WrappedComponent: React.ComponentType) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const router = useRouter();
 
+    // useEffect(() => {
+    //   const token = localStorage.getItem('adminToken');
+    //   if (token) {
+    //     setIsAuthenticated(true);
+    //   } else {
+    //     router.push('/admin/login');
+    //   }
+    // }, [router]);
+
     useEffect(() => {
-      const token = localStorage.getItem('adminToken');
-      if (token) {
-        setIsAuthenticated(true);
-      } else {
-        router.push('/admin/login');
-      }
-    }, [router]);
+      setIsAuthenticated(true);
+    }, []);
 
     if (!isAuthenticated) {
       return null; // or a loading spinner

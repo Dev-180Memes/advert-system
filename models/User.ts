@@ -1,27 +1,23 @@
-// models/User.ts
-
-import mongoose, { Schema, Model, Document, } from 'mongoose';
+import mongoose, { Schema, Model, Document, ObjectId } from 'mongoose';
 
 interface IUser extends Document {
     email: string;
-    username: string;
-    password: string;
+    name: string;
+    clientTo: ObjectId;
 }
 
 const userSchema: Schema<IUser> = new Schema({
     email: {
         type: String,
         required: true,
-        unique: true,
     },
-    username: {
+    name: {
         type: String,
         required: true,
-        unique: true,
     },
-    password: {
-        type: String,
-        required: true,
+    clientTo: {
+        type: Schema.Types.ObjectId,
+        ref: 'Admin',
     },
 });
 
