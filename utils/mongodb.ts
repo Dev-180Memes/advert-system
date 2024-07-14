@@ -23,13 +23,18 @@ if (!dbName) {
  * @returns {Promise<Db>} The MongoDB database instance
  */
 export async function connectToDatabase(): Promise<Db> {
-  if (client && db) {
+  if (db) {
     return db;
   }
 
-  client = new MongoClient(uri);
+  if (!client) {
+    client = new MongoClient(uri, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+  }
 
-  if (!client.isConnected()) {
+  if (!client.topology || !client.topology.isConnected()) {
     await client.connect();
   }
 
