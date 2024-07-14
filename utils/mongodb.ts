@@ -1,40 +1,17 @@
-// utils/mongodb.ts
+import mongoose from mongoose;
 
-import { MongoClient, Db } from 'mongodb';
+export async function connectToDatabase() {
+   if (mongoose.connections[0].readyState) {
+        return;
+    }
 
-let client: MongoClient | null = null;
-let db: Db | null = null;
+    const mongoUri = process.env.MONGO_URI as string || 'mongodb://localhost:27017/greg-schools';
 
-const uri = process.env.MONGODB_URI || 'your-default-mongodb-uri'; // Set your MongoDB URI here
-const dbName = process.env.DB_NAME || 'your-default-db-name'; // Set your DB name here
-
-if (!uri) {
-  throw new Error('Please define the MONGODB_URI environment variable inside .env.local');
-}
-
-if (!dbName) {
-  throw new Error('Please define the DB_NAME environment variable inside .env.local');
-}
-
-/**
- * Connect to MongoDB and return the database instance.
- * Uses a singleton pattern to ensure a single connection throughout the app's lifecycle.
- * 
- * @returns {Promise<Db>} The MongoDB database instance
- */
-export async function connectToDatabase(): Promise<Db> {
-  if (db) {
-    return db;
-  }
-
-  if (!client) {
-    client = new MongoClient(uri);
-  }
-
-  if (!client.topology || !client.topology.isConnected()) {
-    await client.connect();
-  }
-
-  db = client.db(dbName);
-  return db;
+    try {
+        await mongoose.connect(mongoUri);
+        console.log('MongoDb connected successfully');
+    } catch (error) {
+        console.error("Error connecting to MongoDb", error);
+        throw new Error("Error connecting to MongoDb");
+    }
 }
