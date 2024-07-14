@@ -28,10 +28,7 @@ export async function connectToDatabase(): Promise<Db> {
   }
 
   if (!client) {
-    client = new MongoClient(uri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    client = new MongoClient(uri);
   }
 
   if (!client.topology || !client.topology.isConnected()) {
