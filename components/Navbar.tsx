@@ -31,9 +31,9 @@ const Navbar: React.FC = () => {
             </li>
           </ul>
           <div className="flex flex-row justify-end text-center items-center">
-            <Link href={"/"} className='bg-white text-[#2d2323] border-1 border border-[#e3e1e1] rounded-full py-[15px] px-5 text-lg font-normal transition-all flex hover:bg-gray-200 hover:-rotate-3'>Log in</Link>
+            <Link href={"/auth/login"} className='bg-white text-[#2d2323] border-1 border border-[#e3e1e1] rounded-full py-[15px] px-5 text-lg font-normal transition-all flex hover:bg-gray-200 hover:-rotate-3'>Log in</Link>
             <div className="w-2 h-2"></div>
-            <Link href={"/"} className='bg-blue-600 text-white rounded-full flex-grow-0 flex-shrink pt-4 pb-[15px] px-6 text-lg font-normal transition-all flex max-w-full hover:bg-[#254cda] hover:-rotate-6'>Sign Up</Link>
+            <Link href={"/auth/signup"} className='bg-blue-600 text-white rounded-full flex-grow-0 flex-shrink pt-4 pb-[15px] px-6 text-lg font-normal transition-all flex max-w-full hover:bg-[#254cda] hover:-rotate-6'>Sign Up</Link>
           </div>
         </div>
         <div className="bg-white rounded-full justify-between items-center m-0 p-[10px] flex md:hidden relative mt-1">
@@ -47,14 +47,14 @@ const Navbar: React.FC = () => {
               className="flex-none self-center mt-0 mr-0 max-w-full inline-block border-0"
             />
           </Link>
-          <Link href={"/"} className='mr-2.5 py-2.5 px-3.5 text-base flex bg-blue-600 text-white rounded-full'>Sign Up</Link>
+          <Link href={"/auth/signup"} className='mr-2.5 py-2.5 px-3.5 text-base flex bg-blue-600 text-white rounded-full'>Sign Up</Link>
         </div>
         {isOpen && (
           // Mobile Menu
           <div className="flex flex-col w-full bg-white rounded-lg p-5 absolute">
             <ul className="text-left flex-col flex-nowrap content-around flex relative">
               <li className='h-11 px-4 py-[10px] text-xl font-normal text-[#222] text-left inline-block relative hover:bg-gray-200 hover:rounded-lg'>
-                <Link href={"/"} className='text-[#222] text-xl font-normal text-left'>Log in</Link>
+                <Link href={"/auth/login"} className='text-[#222] text-xl font-normal text-left'>Log in</Link>
               </li>
               <li className='h-11 px-4 py-[10px] text-xl font-normal text-[#222] text-left inline-block relative hover:bg-gray-200 hover:rounded-lg'>
                 <Link href={"/"} className='text-[#222] text-xl font-normal text-left'>Home</Link>
