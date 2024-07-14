@@ -92,7 +92,7 @@ const UserManagement = () => {
             </tr>
           </thead>
           <tbody>
-            {clients.map((client) => (
+            {clients.map((client:any) => (
               <tr key={client._id}>
                 <td>{client.name}</td>
                 <td>{client.email}</td>
