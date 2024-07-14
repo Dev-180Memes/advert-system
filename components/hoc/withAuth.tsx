@@ -9,7 +9,7 @@ const withAuth = (WrappedComponent: React.ComponentType) => {
     const router = useRouter();
 
     useEffect(() => {
-      const token = localStorage.getItem('adminToken');
+      const token = localStorage.getItem('token');
       if (token) {
         setIsAuthenticated(true);
       } else {
