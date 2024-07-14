@@ -15,7 +15,7 @@ const Login = () => {
       const response = await axios.post('/api/admin/login', { username, password });
       if (response.status === 200) {
         localStorage.setItem('token', response.data.token);
-        router.push('/platform/dashboard');
+        router.push('/platform/');
       }
     } catch (error) {
       setError('Invalid credentials');
