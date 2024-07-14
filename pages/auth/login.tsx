@@ -72,7 +72,7 @@ const Login = () => {
           <div
             className='mb-4'
           >
-            Don't have an account? <a
+            Don&apos;t have an account? <a
               href="/auth/register"
               className='text-[#2d2323] hover:underline'
             >Register</a>
