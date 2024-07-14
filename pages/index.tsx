@@ -1,10 +1,15 @@
-import React from 'react'
+import React from 'react';
+import Navbar from '@/components/Navbar';
+import HeroSection from '@/components/HeroSection';
 
 const Home: React.FC = () => {
   return (
-    <div>
-      Home Page
-    </div>
+    <>
+      <Navbar />
+      <div className="overflow-hidden">
+        <HeroSection />
+      </div>
+    </>
   )
 }
 
