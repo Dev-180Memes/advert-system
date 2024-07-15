@@ -5,7 +5,7 @@ export async function connectToDatabase() {
         return;
     }
 
-    const mongoUri = process.env.MONGODB_URI as string || 'mongodb://localhost:27017/greg-schools';
+    const mongoUri = process.env.MONGODB_URI as string || 'mongodb://localhost:27017/advert-system';
 
     try {
         await mongoose.connect(mongoUri);
