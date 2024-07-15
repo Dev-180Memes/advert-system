@@ -11,7 +11,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     await connectToDatabase();
 
-    const report = await Report.findById({ createdBy: id })
+    const report = await Report.find({ createdBy: id })
 
     if (!report) {
         return res.status(404).json({ message: 'Report not found' });

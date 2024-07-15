@@ -27,7 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
             const { id } = req.query;
 
-            const user = await User.findById({ clientTo: id });
+            const user = await User.find({ clientTo: id });
 
             res.status(200).json({ user });
         } catch (error) {
