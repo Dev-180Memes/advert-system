@@ -17,6 +17,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   const { username, password, email } = req.body;
 
     if (!username || !password || !email) {
+        console.log('Username, email, and password are required');
         return res.status(400).json({ message: 'Username, email, and password are required' });
     }
 
@@ -26,11 +27,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         const admin = await Admin.findOne({ username });
 
         if (admin) {
+            console.log('Username already exists');
             return res.status(400).json({ message: 'Username already exists' });
         } else {
             const admin = await Admin.findOne({ email });
 
             if (admin) {
+                console.log('Email already exists');
                 return res.status(400).json({ message: 'Email already exists' });
             }
 

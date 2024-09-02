@@ -15,8 +15,10 @@ const Reports: React.FC = () => {
                 const { id } = decodeJWT(token);
                 const { data } = await axios.get(`/api/reports/${id}`);
 
-                if (data.report) {
-                    setReports(data.report);
+                // console.log(data);
+
+                if (data) {
+                    setReports(data);
                 } else {
                     console.error('Error getting reports:', data.message);
                 }
